@@ -1,0 +1,38 @@
+/*  TOP BAR */
+
+.topbar {
+    width: 100% !important;
+    height: 64px;
+    margin-bottom: 65px;
+    background-color: #32a515;
+    color: white;
+}
+
+.text-topbar {
+    font-size: 1em;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+
+/* SIDENAV */
+
+.sidenav {
+    background-color: #032955;
+    width: 200px;
+}
+
+.sidenav a {
+    color: white;
+}
+
+.sidenav i {
+    padding-right: 10px;
+}
+
+.content {
+    padding: 2px;
+    background-color: white;
+}

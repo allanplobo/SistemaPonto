@@ -8,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AreaAutenticadaComponent implements OnInit {
   constructor(private router: Router) {}
+  admLogado: boolean = false;
+  colaboradorLogado: boolean = false;
 
   ngOnInit(): void {
     if (localStorage['token'] == null) {
       this.router.navigate(['']);
+    }
+    if (localStorage['token'] == "admlogado"){
+      this.admLogado = true;
+    }
+
+    if (localStorage['token'] == "colaboradorlogado"){
+      this.colaboradorLogado = true;
     }
   }
 

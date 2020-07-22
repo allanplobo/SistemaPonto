@@ -7,7 +7,7 @@
                 </i> Ponto
             </a>
 
-            <a mat-list-item routerLink="/principal">
+            <a mat-list-item routerLink="/">
                 <i class="material-icons">
                   date_range
                 </i> Histórico
@@ -21,6 +21,6 @@
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content class="content">
-        <h1>Olá</h1>
+        <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

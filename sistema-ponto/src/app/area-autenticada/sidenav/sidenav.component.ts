@@ -12,13 +12,7 @@ export class SidenavComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if (localStorage['token'] == "admlogado"){
-      this.admLogado = true;
-    }
 
-    if (localStorage['token'] == "colaboradorlogado"){
-      this.colaboradorLogado = true;
-    }
   }
 
 }

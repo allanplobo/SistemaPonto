@@ -1,24 +1,27 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { AreaLoginComponent } from './area-login.component';
+import { AreaLoginRouting } from './area-login.routing';
 
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatMenuModule} from '@angular/material/menu';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AreaLoginComponent
+  ],
   imports: [
     CommonModule,
-    BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
-    MatMenuModule
+    MatMenuModule,
+    AreaLoginRouting
   ]
 })
 export class AreaLoginModule { }

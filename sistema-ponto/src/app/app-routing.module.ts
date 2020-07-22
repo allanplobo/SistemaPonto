@@ -2,22 +2,22 @@ import { AreaAutenticadaComponent } from './area-autenticada/area-autenticada.co
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AreaLoginComponent } from './area-login/area-login.component';
-import { PrincipalComponent } from './area-autenticada/principal/principal.component';
+
 
 const routes: Routes = [
   {
     path: '',
-    component: AreaLoginComponent,
-    outlet: 'root',
+    pathMatch: 'full',
+    redirectTo: 'area-login'
   },
   {
     path: 'area-autenticada',
-    component: AreaAutenticadaComponent,
+    loadChildren: () => import('./area-autenticada/area-autenticada.module').then(x => x.AreaAutenticadaModule)
   },
   {
-    path: 'area-autenticada/principal',
-    component: PrincipalComponent,
-  },
+    path: 'area-login',
+    loadChildren: () => import('./area-login/area-login.module').then(x => x.AreaLoginModule)
+  }
 ];
 
 @NgModule({

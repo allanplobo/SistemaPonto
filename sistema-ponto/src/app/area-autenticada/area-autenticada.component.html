@@ -1,3 +1,39 @@
-<app-topbar></app-topbar>
-<app-sidenav></app-sidenav>
-<app-principal></app-principal>
+<!-- TOP BAR -->
+<mat-toolbar class="topbar">
+    <span class="text-topbar">Sistema de Registro de Ponto</span>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()">SAIR</button>
+    </mat-menu>
+</mat-toolbar>
+
+<!-- SIDENAV -->
+<mat-sidenav-container class="container">
+    <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="64">
+        <mat-nav-list class="nav-list">
+            <a mat-list-item routerLink="/area-autenticada/ponto">
+                <i class="material-icons">
+                alarm
+              </i> Ponto
+            </a>
+
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">
+                date_range
+              </i> Histórico
+            </a>
+
+            <a mat-list-item routerLink="/area-autenticada/registros" *ngIf="this.admLogado">
+                <i class="material-icons">
+              assessment
+              </i> Registro
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

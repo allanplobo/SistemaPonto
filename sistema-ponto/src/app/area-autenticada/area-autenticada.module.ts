@@ -1,13 +1,31 @@
+import { AreaAutenticadaComponent } from './area-autenticada.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { AreaAutenticadaRoutingModule } from './area-autenticada-routing.module';
+import { PontoComponent } from './ponto/ponto.component';
+import { HistoricoComponent } from './historico/historico.component';
+import { RegistrosComponent } from './registros/registros.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { AreaAutenticadaRouting } from './area-autenticada.routing';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PontoComponent,
+    HistoricoComponent,
+    RegistrosComponent,
+    AreaAutenticadaComponent
+  ],
   imports: [
     CommonModule,
-    AreaAutenticadaRoutingModule
-  ]
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    AreaAutenticadaRouting
+  ],
 })
-export class AreaAutenticadaModule { }
+export class AreaAutenticadaModule {}

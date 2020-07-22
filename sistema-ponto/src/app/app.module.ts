@@ -7,31 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatMenuModule} from '@angular/material/menu';
+
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { AreaAutenticadaComponent } from './area-autenticada/area-autenticada.component';
-import { AreaLoginComponent } from './area-login/area-login.component';
-import { TopbarComponent } from './area-autenticada/topbar/topbar.component';
-import { SidenavComponent } from './area-autenticada/sidenav/sidenav.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { PrincipalComponent } from './area-autenticada/principal/principal.component';
-
-
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AreaLoginComponent,
-    AreaAutenticadaComponent,
-    TopbarComponent,
-    SidenavComponent,
-    PrincipalComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -39,14 +23,9 @@ import { PrincipalComponent } from './area-autenticada/principal/principal.compo
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatListModule,
     MatDialogModule,
     ReactiveFormsModule,
-    FormsModule,
-    MatMenuModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
