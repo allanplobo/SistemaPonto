@@ -9,7 +9,7 @@ import { Router } from '@angular/router'
 })
 export class AreaLoginComponent {
   hide: boolean = true;
-  admin: string[] = ['admin@admin', 'senha', 'Administrador'];
+  admin: string[] = ['adm@adm', 'adm', 'Administrador'];
   colaborador: string[] = ['allan@allan', '2020', 'Allan']
   email = new FormControl('', [Validators.required, Validators.email]);
   senha = new FormControl('', [Validators.required]);
@@ -33,7 +33,7 @@ export class AreaLoginComponent {
     else if(this.email.value == this.admin[0] && this.senha.value == this.admin[1]){
       alert("Bem vindo," + this.admin[2]);
       localStorage['token'] = "admlogado";
-      this.router.navigate(['ponto']);
+      this.router.navigate(['adm']);
     }
     else{
       alert("E-mail ou senha inválidos!");
