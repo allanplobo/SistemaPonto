@@ -1,15 +1,13 @@
-import { TopbarComponent } from './topbar/topbar.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
+import { AreaAutenticadaRoutingModule } from './area-autenticada-routing.module';
 
 @NgModule({
-  declarations: [
-    TopbarComponent
-  ],
+  declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    AreaAutenticadaRoutingModule
   ]
 })
 export class AreaAutenticadaModule { }
