@@ -1,4 +1,3 @@
-import { AuthGuard } from './guards/auth.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -9,20 +8,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { AreaAdmComponent } from './area-adm/area-adm.component';
-import { AreaPontoComponent } from './area-ponto/area-ponto.component';
+import { AreaAutenticadaComponent } from './area-autenticada/area-autenticada.component';
 import { AreaLoginComponent } from './area-login/area-login.component';
-
+import { TopbarComponent } from './area-autenticada/topbar/topbar.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AreaAdmComponent,
-    AreaPontoComponent,
-    AreaLoginComponent
+    AreaLoginComponent,
+    AreaAutenticadaComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,
@@ -31,12 +33,14 @@ import { AreaLoginComponent } from './area-login/area-login.component';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule
   ],
-  providers: [
-    AuthGuard
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

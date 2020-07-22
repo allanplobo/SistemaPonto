@@ -1,3 +1,10 @@
+.area-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
 .login-div {
     background-color: #f0efef;
     display: flex;

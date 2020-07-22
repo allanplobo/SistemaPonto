@@ -1,0 +1,18 @@
+.topbar {
+    position: fixed;
+    width: 100% !important;
+    height: 65px;
+    top: 0;
+    left: 0;
+    margin-bottom: 65px;
+    background-color: #32a515;
+    color: white;
+}
+
+.text-topbar {
+    font-size: 1em;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
