@@ -12,7 +12,7 @@
     </button>
         </mat-form-field>
 
-        <button class="btn-login" mat-raised-button color="primary" [disabled]="this.email.invalid || this.senha.invalid" (click)="login()">
+        <button class="btn-login" mat-raised-button [disabled]="this.email.invalid || this.senha.invalid" (click)="login()">
     Entrar
   </button>
     </div>

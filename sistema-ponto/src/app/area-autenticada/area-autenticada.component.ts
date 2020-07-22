@@ -13,12 +13,11 @@ export class AreaAutenticadaComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage['token'] == null) {
-      this.router.navigate(['']);
+      this.router.navigate(['area-login']);
     }
     if (localStorage['token'] == "admlogado"){
       this.admLogado = true;
     }
-
     if (localStorage['token'] == "colaboradorlogado"){
       this.colaboradorLogado = true;
     }

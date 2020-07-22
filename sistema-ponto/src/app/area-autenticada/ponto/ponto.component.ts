@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PontoComponent implements OnInit {
 
+  realTime: number = 0;
   constructor() { }
 
   ngOnInit(): void {

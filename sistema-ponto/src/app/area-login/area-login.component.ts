@@ -16,21 +16,26 @@ export class AreaLoginComponent {
 
   constructor(private router: Router) {}
   ngOnInit(){
+    if (localStorage['token'] == "admlogado" || localStorage['token'] == "colaboradorlogado"){
+      this.router.navigate(['area-autenticada']);
+    }
+    if (localStorage['token'] == "colaboradorlogado"){
+      this.router.navigate(['area-autenticada']);
+    }
   }
 
   login(){
     if(this.email.value == this.colaborador[0] && this.senha.value == this.colaborador[1]){
       alert("Bem vindo, " + this.colaborador[2]);
       localStorage['token'] = "colaboradorlogado";
-      this.router.navigate(['area-autenticada']);
+      this.router.navigate(['area-autenticada/ponto']);
     }
     else if(this.email.value == this.admin[0] && this.senha.value == this.admin[1]){
       alert("Bem vindo," + this.admin[2]);
       localStorage['token'] = "admlogado";
-      this.router.navigate(['area-autenticada']);
+      this.router.navigate(['area-autenticada/ponto']);
     }
     else{
-      alert("E-mail ou senha inválidos!");
       return;
     }
   }

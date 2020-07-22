@@ -1,0 +1,63 @@
+/* DIV COM INFORMAÇÕES */
+
+.top-content {
+    background-color: red;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-first-info {
+    width: 200px;
+    height: 180px;
+    background-color: green;
+    margin-right: 2.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-second-info {
+    width: 200px;
+    height: 180px;
+    margin-left: 2.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: pink;
+}
+
+
+/* DIV COM OS BOTÕES */
+
+.btns-content {
+    background-color: blue;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.first-btn {
+    width: 200px;
+    height: 180px;
+    background-color: green;
+}
+
+.second-btn {
+    width: 200px;
+    height: 180px;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: pink;
+}
+
+.third-btn {
+    width: 200px;
+    height: 180px;
+    background-color: black;
+}
