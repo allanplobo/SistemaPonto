@@ -1,9 +1,13 @@
-<mat-form-field class="filtro-content">
-    <input class="filtro-input" placeholder="Filtro" (keyup)="aplicarFiltro($event.target.value)" matInput>
-    <i matPrefix class="material-icons">
-      search
-    </i>
-</mat-form-field>
+<mat-toolbar class="registros-topbar">
+    <p class="registros-topbar-text">REGISTROS</p>
+    <span class="spacer"></span>
+    <mat-form-field class="filtro-content">
+        <input class="filtro-input" placeholder="Filtro" (keyup)="aplicarFiltro($event.target.value)" matInput>
+        <i matPrefix class="material-icons">
+        search
+      </i>
+    </mat-form-field>
+</mat-toolbar>
 
 <table mat-table [dataSource]="colaboradores" class="mat-elevation-z8">
     <!-- Nome Column -->

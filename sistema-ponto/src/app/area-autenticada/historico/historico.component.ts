@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import {Component} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-
+import * as moment from 'moment';
 
 export interface colaboradores {
   data: string;

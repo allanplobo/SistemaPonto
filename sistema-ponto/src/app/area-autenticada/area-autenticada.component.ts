@@ -1,5 +1,6 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'area-autenticada',
@@ -15,16 +16,25 @@ export class AreaAutenticadaComponent implements OnInit {
     if (localStorage['token'] == null) {
       this.router.navigate(['area-login']);
     }
-    if (localStorage['token'] == "admlogado"){
+    if (localStorage['token'] == 'admlogado') {
       this.admLogado = true;
     }
-    if (localStorage['token'] == "colaboradorlogado"){
+    if (localStorage['token'] == 'colaboradorlogado') {
       this.colaboradorLogado = true;
     }
   }
 
   logout() {
-    localStorage.clear();
-    this.router.navigate(['']);
+    if (localStorage['pontoIniciado'] != null) {
+      swal({
+        title: 'Ponto em andamento',
+        text: 'Finalize o dia para sair do sistema! ',
+        icon: 'error',
+      });
+      return;
+    } else {
+      localStorage.clear();
+      this.router.navigate(['']);
+    }
   }
 }

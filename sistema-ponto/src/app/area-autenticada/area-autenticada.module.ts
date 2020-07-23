@@ -15,7 +15,6 @@ import { HistoricoComponent } from './historico/historico.component';
 import { PontoComponent } from './ponto/ponto.component';
 import { RegistrosComponent } from './registros/registros.component';
 
-
 @NgModule({
   declarations: [
     PontoComponent,

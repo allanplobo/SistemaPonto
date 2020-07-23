@@ -1,3 +1,12 @@
 table {
     width: 100%;
 }
+
+.historico-topbar {
+    width: 100%;
+    padding-top: 1.2%;
+}
+
+.historico-topbar-text {
+    font-size: 1.2em;
+}
