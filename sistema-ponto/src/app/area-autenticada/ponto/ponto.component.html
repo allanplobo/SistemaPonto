@@ -1,16 +1,25 @@
 <div class="top-content">
     <div class="top-first-info">
-        <p>Tempo Percorrido:</p>
-        <p>{{realTime}}</p>
+        <p *ngIf="!this.pontoIniciado">Você ainda não iniciou o dia!</p>
+        <p *ngIf="this.pontoIniciado"> Dia iniciado em: {{tempoInicial}}</p>
     </div>
     <div class="top-second-info">
-        <p>Horário Almoço Percorrido</p>
+        <p *ngIf="!this.almocoIniciado">Horário de Almoço não iniciado</p>
+        <p *ngIf="this.almocoIniciado"> Almoço iniciado em: {{tempoIniciaAlmoco}}</p>
     </div>
 
 </div>
 
 <div class="btns-content">
-    <div class="first-btn"></div>
-    <div class="second-btn"></div>
-    <div class="third-btn"></div>
+    <div class="first-btn">
+        <button mat-button (click)="iniciarDia()" *ngIf="!this.pontoIniciado">Iniciar Dia</button>
+        <button mat-button (click)="iniciarDia()" *ngIf="this.pontoIniciado" disabled>Já Iniciado</button>
+    </div>
+    <div class="second-btn">
+        <button mat-button (click)="iniciarAlmoco()" *ngIf="!this.almocoIniciado">Iniciar Almoço</button>
+        <button mat-button (click)="encerrarAlmoco()" *ngIf="this.almocoIniciado">Voltei do Almoço!</button>
+    </div>
+    <div class="third-btn">
+        <button mat-button (click)="encerrarDia()" [disabled]="!this.pontoIniciado">Encerrar Dia</button>
+    </div>
 </div>
