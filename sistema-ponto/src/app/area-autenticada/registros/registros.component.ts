@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
 export interface colaboradores {
+  nome: string;
   data: string;
   entrada: string;
   almoco: string;
@@ -12,6 +13,7 @@ export interface colaboradores {
 
 var ELEMENT_DATA: colaboradores[] = [
   {
+    nome: 'Allan',
     data: '23/07/2020',
     entrada: '08:06:00',
     almoco: '01:10:00',
@@ -19,6 +21,7 @@ var ELEMENT_DATA: colaboradores[] = [
     saldo: 'xxxxxxxx',
   },
   {
+    nome: 'Geovany',
     data: '22/07/2020',
     entrada: '08:01:00',
     almoco: '01:01:00',
@@ -26,6 +29,7 @@ var ELEMENT_DATA: colaboradores[] = [
     saldo: 'xxxxxxxx',
   },
   {
+    nome: 'José',
     data: '21/07/2020',
     entrada: '08:20:00',
     almoco: '01:00:00',
@@ -33,6 +37,7 @@ var ELEMENT_DATA: colaboradores[] = [
     saldo: 'xxxxxxxx',
   },
   {
+    nome: 'Lorraine',
     data: '20/07/2020',
     entrada: '08:10:00',
     almoco: '00:55:00',
@@ -47,8 +52,8 @@ var ELEMENT_DATA: colaboradores[] = [
   styleUrls: ['./registros.component.css'],
 })
 export class RegistrosComponent {
-  colaboradores = ELEMENT_DATA;
-  colunas: string[] = ['data', 'entrada', 'almoco', 'saida', 'saldo'];
+  colaboradores = new MatTableDataSource(ELEMENT_DATA);
+  colunas: string[] = ['nome', 'data', 'entrada', 'almoco', 'saida', 'saldo'];
 
   constructor(private router: Router) {}
 
@@ -56,5 +61,9 @@ export class RegistrosComponent {
     if (localStorage['token'] != 'admlogado') {
       this.router.navigate(['area-autenticada']);
     }
+  }
+
+  aplicarFiltro(valorFiltro: string){
+    this.colaboradores.filter = valorFiltro.trim().toLowerCase();
   }
 }

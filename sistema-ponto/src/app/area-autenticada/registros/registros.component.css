@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+}
+
+.filtro-content {
+    float: right;
+    margin-right: 3%;
+    margin-top: 1%;
+}
+
+.filtro-input {
+    padding-left: 1%;
+    text-align: left;
+    font-size: 1em;
+}
