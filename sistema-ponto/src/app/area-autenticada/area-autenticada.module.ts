@@ -1,3 +1,4 @@
+import { PontoService } from './services/ponto.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
@@ -35,5 +36,6 @@ import { RegistrosComponent } from './registros/registros.component';
     MatButtonModule,
     MatTableModule
   ],
+  providers: [PontoService],
 })
 export class AreaAutenticadaModule {}

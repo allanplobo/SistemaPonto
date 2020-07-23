@@ -10,6 +10,7 @@ import swal from 'sweetalert';
 export class PontoComponent implements OnInit {
   pontoIniciado: boolean = false;
   almocoIniciado: boolean = false;
+  almocoJaFeito: boolean = false;
 
   tempoInicialText: string;
   tempoFinalText: string;
@@ -25,20 +26,24 @@ export class PontoComponent implements OnInit {
   mediaTempo: any;
   mediaTempoAlmoco: any;
 
-  teste: any;
-
   constructor() {}
 
   ngOnInit(): void {
-    if (localStorage['tempoInicial'] != null) {
+    if (localStorage['pontoIniciado'] == 'true') {
       this.tempoInicial = localStorage['tempoInicial'];
       this.tempoInicialText = localStorage['tempoInicialText'];
       this.pontoIniciado = true;
     }
 
-    if (localStorage['tempoIniciaAlmoco'] != null) {
+    if (localStorage['almocoIniciado'] == "true") {
       this.tempoIniciaAlmoco = localStorage['tempoIniciaAlmoco'];
       this.almocoIniciado = true;
+    }
+
+    if (localStorage['almocoJaFeito'] == "true") {
+      this.tempoIniciaAlmoco = localStorage['tempoIniciaAlmoco'];
+      this.almocoJaFeito = true;
+      this.almocoIniciado = false;
     }
   }
 
@@ -46,7 +51,7 @@ export class PontoComponent implements OnInit {
     this.pontoIniciado = true;
     this.tempoInicialText = moment().format('DD/MM/YYYY HH:mm');
     this.tempoInicial = moment();
-    // this.tempoInicialMoment = moment(this.tempoInicial);
+
     localStorage['pontoIniciado'] = 'true';
     localStorage['tempoInicial'] = this.tempoInicial;
     localStorage['tempoInicialText'] = this.tempoInicialText;
@@ -58,35 +63,47 @@ export class PontoComponent implements OnInit {
   }
 
   encerrarDia() {
-    this.pontoIniciado = false;
-    this.tempoFinalText = moment().format('DD/MM/YYYY HH:mm');
-    let x = moment();
+    if (this.almocoIniciado == true) {
+      swal({
+        title: 'Almoço em andamento!',
+        text: 'Encerre o intervalo de almoço primeiro!',
+        icon: 'error',
+      });
+    } else {
+      this.pontoIniciado = false;
+      this.almocoJaFeito = false;
+      this.tempoFinalText = moment().format('DD/MM/YYYY HH:mm');
+      let x = moment();
 
-    this.mediaDia = x.diff(this.tempoInicial, 'minutes');
-    localStorage.removeItem('tempoInicial');
-    localStorage.removeItem('pontoIniciado');
+      this.mediaDia = x.diff(this.tempoInicial, 'minutes');
 
-    swal({
-      title: 'Dia Encerrado!',
-      text: 'Você encerrou o dia em: ' + this.tempoFinalText + '! Até amanhã!',
-      icon: 'success',
-    });
+      localStorage['pontoIniciado'] = 'false';
+      localStorage.removeItem('tempoInicial');
+
+
+      swal({
+        title: 'Dia Encerrado!',
+        text: 'Tenha um bom descanso!',
+        icon: 'success',
+      });
+    }
   }
 
   iniciarAlmoco() {
-    let o = new Date();
-    console.log(o);
     if (this.pontoIniciado == true) {
       this.almocoIniciado = true;
       let x = new Date().toLocaleString();
       this.tempoIniciaAlmoco = x;
-      localStorage['tempoIniciaAlmoco'] = this.tempoIniciaAlmoco;
 
       swal({
         title: 'Almoço Iniciado!',
         text: 'Tenha um ótimo almoço!',
         icon: 'success',
       });
+
+      localStorage['tempoIniciaAlmoco'] = this.tempoIniciaAlmoco;
+      localStorage['almocoIniciado'] = 'true';
+
     } else {
       swal({
         title: 'Você ainda não iniciou o dia!',
@@ -99,11 +116,12 @@ export class PontoComponent implements OnInit {
 
   encerrarAlmoco() {
     this.almocoIniciado = false;
+    this.almocoJaFeito = true;
     let y = new Date().toLocaleString();
     this.tempoFinalAlmoco = y;
 
-    console.log(this.tempoFinalAlmoco);
-    localStorage.removeItem('tempoIniciaAlmoco');
+    localStorage['almocoJaFeito'] = 'true';
+    localStorage['almocoIniciado'] == 'false';
 
     swal({
       title: 'Almoço Encerrado!',

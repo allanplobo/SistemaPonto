@@ -25,7 +25,7 @@ export class AreaAutenticadaComponent implements OnInit {
   }
 
   logout() {
-    if (localStorage['pontoIniciado'] != null) {
+    if (localStorage['pontoIniciado'] == 'true') {
       swal({
         title: 'Ponto em andamento',
         text: 'Finalize o dia para sair do sistema! ',
@@ -35,6 +35,10 @@ export class AreaAutenticadaComponent implements OnInit {
     } else {
       localStorage.clear();
       this.router.navigate(['']);
+      swal({
+        title: 'Você saiu do sistema!',
+        icon: 'success',
+      });
     }
   }
 }
