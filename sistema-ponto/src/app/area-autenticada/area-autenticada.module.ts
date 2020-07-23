@@ -11,6 +11,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { AreaAutenticadaRouting } from './area-autenticada.routing';
 import {MatButtonModule} from '@angular/material/button';
+import { MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef } from '@angular/material/table';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatIconModule,
     AreaAutenticadaRouting,
     MatButtonModule,
+    MatTableModule
   ],
 })
 export class AreaAutenticadaModule {}

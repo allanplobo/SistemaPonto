@@ -9,8 +9,8 @@ export class PontoComponent implements OnInit {
   pontoIniciado: boolean = false;
   almocoIniciado: boolean = false;
 
-  tempoInicial: any;
-  tempoFinal: any;
+  tempoInicial: string;
+  tempoFinal: string;
 
   tempoIniciaAlmoco: any;
   tempoFinalAlmoco: any;
@@ -35,18 +35,15 @@ export class PontoComponent implements OnInit {
   iniciarDia(){
     this.pontoIniciado = true;
     let x = new Date();
-    this.tempoInicial = x.getDate() + '/' + (x.getMonth()+1) + '/' + x.getFullYear() + ' ' + x.getHours() + ':' + x.getMinutes();
+    this.tempoInicial = x.toLocaleString();
     localStorage['tempoInicial'] = this.tempoInicial;
   }
 
   encerrarDia(){
     this.pontoIniciado = false;
     let x = new Date();
-    this.tempoFinal = x.getDate() + '/' + (x.getMonth()+1) + '/' + x.getFullYear() + ' ' + x.getHours() + ':' + x.getMinutes();
-    alert(this.tempoInicial);
-    alert(this.tempoFinal);
-    let y = Math.abs(this.tempoInicial - this.tempoFinal);
-    alert(y);
+    this.tempoFinal = x.toLocaleString();
+
     localStorage.removeItem('tempoInicial');
 
   }

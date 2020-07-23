@@ -1,25 +1,25 @@
 <div class="top-content">
-    <div class="top-first-info">
+    <div class="top-first-info mat-elevation-z2">
         <p *ngIf="!this.pontoIniciado">Você ainda não iniciou o dia!</p>
-        <p *ngIf="this.pontoIniciado"> Dia iniciado em: {{tempoInicial}}</p>
+        <p *ngIf="this.pontoIniciado"> Dia iniciado em: <br>{{tempoInicial}}</p>
     </div>
-    <div class="top-second-info">
+    <div class="top-second-info mat-elevation-z2">
         <p *ngIf="!this.almocoIniciado">Horário de Almoço não iniciado</p>
-        <p *ngIf="this.almocoIniciado"> Almoço iniciado em: {{tempoIniciaAlmoco}}</p>
+        <p *ngIf="this.almocoIniciado"> Almoço iniciado em: <br> {{tempoIniciaAlmoco}}</p>
     </div>
 
 </div>
 
 <div class="btns-content">
     <div class="first-btn">
-        <button mat-button (click)="iniciarDia()" *ngIf="!this.pontoIniciado">Iniciar Dia</button>
-        <button mat-button (click)="iniciarDia()" *ngIf="this.pontoIniciado" disabled>Já Iniciado</button>
+        <button mat-raised-button (click)="iniciarDia()" color="primary" *ngIf="!this.pontoIniciado">Iniciar Dia</button>
+        <button mat-raised-button (click)="iniciarDia()" *ngIf="this.pontoIniciado" disabled>Já Iniciado</button>
     </div>
     <div class="second-btn">
-        <button mat-button (click)="iniciarAlmoco()" *ngIf="!this.almocoIniciado">Iniciar Almoço</button>
-        <button mat-button (click)="encerrarAlmoco()" *ngIf="this.almocoIniciado">Voltei do Almoço!</button>
+        <button mat-raised-button (click)="iniciarAlmoco()" *ngIf="!this.almocoIniciado">Iniciar Almoço</button>
+        <button mat-raised-button (click)="encerrarAlmoco()" *ngIf="this.almocoIniciado">Voltei do Almoço!</button>
     </div>
     <div class="third-btn">
-        <button mat-button (click)="encerrarDia()" [disabled]="!this.pontoIniciado">Encerrar Dia</button>
+        <button mat-raised-button (click)="encerrarDia()" color="warn" [disabled]="!this.pontoIniciado">Encerrar Dia</button>
     </div>
 </div>
