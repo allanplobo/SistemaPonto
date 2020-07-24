@@ -1,5 +1,7 @@
 # SistemaPonto
 
+Sistema desenvolvido em Angular.
+
 Usuários padrões
 
 email: allan@allan | senha: 2020
