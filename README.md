@@ -1,6 +1,5 @@
-# SistemaPonto
+# SistemaPonto ( Desenvolvido em Angular )
 
-Sistema desenvolvido em Angular.
 
 Usuários padrões
 
