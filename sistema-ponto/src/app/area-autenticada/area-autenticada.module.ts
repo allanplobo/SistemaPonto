@@ -15,6 +15,7 @@ import { AreaAutenticadaRouting } from './area-autenticada.routing';
 import { HistoricoComponent } from './historico/historico.component';
 import { PontoComponent } from './ponto/ponto.component';
 import { RegistrosComponent } from './registros/registros.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { RegistrosComponent } from './registros/registros.component';
     AreaAutenticadaComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     MatSidenavModule,
     MatListModule,

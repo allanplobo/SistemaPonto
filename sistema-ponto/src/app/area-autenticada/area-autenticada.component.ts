@@ -33,12 +33,35 @@ export class AreaAutenticadaComponent implements OnInit {
       });
       return;
     } else {
-      localStorage.clear();
-      this.router.navigate(['']);
       swal({
-        title: 'Você saiu do sistema!',
-        icon: 'success',
+        title: 'Deseja realmente sair do sistema?',
+        icon: 'warning',
+        dangerMode: true,
+        buttons: ['Não', 'Sim'],
+      }).then((sair) => {
+        if (sair) {
+          swal('Poof! Your imaginary file has been deleted!', {
+            icon: 'success',
+          });
+
+          localStorage.clear();
+          this.router.navigate(['']);
+
+          swal({
+            title: 'Você saiu do sistema!',
+            icon: 'success',
+          });
+        } else {
+          return;
+        }
       });
+
+      // localStorage.clear();
+      // this.router.navigate(['']);
+      // swal({
+      //   title: 'Você saiu do sistema!',
+      //   icon: 'success',
+      // });
     }
   }
 }

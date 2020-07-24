@@ -1,7 +1,7 @@
 <mat-toolbar class="historico-topbar mat-elevation-z4">
     <p class="historico-topbar-text">MEU HISTÓRICO</p>
 </mat-toolbar>
-<table mat-table [dataSource]="historico" class="mat-elevation-z8" id="tabela-historico">
+<table mat-table [dataSource]="historico | async" class="mat-elevation-z8" id="tabela-historico">
     <!-- Data  -->
     <ng-container matColumnDef="data">
         <th mat-header-cell *matHeaderCellDef> Data </th>
@@ -29,7 +29,7 @@
     <!-- Saldo de Horas -->
     <ng-container matColumnDef="saldo">
         <th mat-header-cell *matHeaderCellDef> Saldo Horas </th>
-        <td mat-cell *matCellDef="let element"> {{element.saldo}} </td>
+        <td mat-cell *matCellDef="let element"> {{saldo(element)}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="colunas"></tr>

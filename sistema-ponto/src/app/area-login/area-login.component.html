@@ -1,5 +1,8 @@
 <div class="area-div">
     <div class="mat-elevation-z4 login-div">
+        <i class="material-icons login-icon">
+        assignment_ind
+      </i>
         <mat-form-field appearance="outline " class="email-login">
             <mat-label>Email</mat-label>
             <input type="email" [formControl]="email" matInput placeholder="eu@eu.com">
@@ -8,8 +11,8 @@
             <mat-label>Senha</mat-label>
             <input [formControl]="senha" matInput [type]="hide ? 'password' : 'text'">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-    </button>
+              <mat-icon >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
         </mat-form-field>
 
         <button class="btn-login" mat-raised-button [disabled]="this.email.invalid || this.senha.invalid" (click)="login()">

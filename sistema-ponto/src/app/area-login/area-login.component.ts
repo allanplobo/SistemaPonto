@@ -28,6 +28,7 @@ export class AreaLoginComponent {
   login(){
     if(this.email.value == this.colaborador[0] && this.senha.value == this.colaborador[1]){
       localStorage['token'] = "colaboradorlogado";
+      localStorage['nomeUsuario'] = this.colaborador[2];
       this.router.navigate(['area-autenticada/ponto']);
       swal({
         title: 'Bem-vindo, ' + this.colaborador[2] + '!',
@@ -37,6 +38,7 @@ export class AreaLoginComponent {
     }
     else if(this.email.value == this.admin[0] && this.senha.value == this.admin[1]){
       localStorage['token'] = "admlogado";
+      localStorage['nomeUsuario'] = this.admin[2];
       this.router.navigate(['area-autenticada/ponto']);
       swal({
         title: 'Bem-vindo, ' + this.admin[2] + '!',

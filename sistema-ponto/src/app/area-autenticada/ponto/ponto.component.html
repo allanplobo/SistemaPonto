@@ -1,12 +1,12 @@
 <div class="top-content">
     <div class="top-first-info mat-elevation-z2">
         <p *ngIf="!this.pontoIniciado">Dia não iniciado!</p>
-        <p *ngIf="this.pontoIniciado"> Dia iniciado em: <br>{{tempoInicialText}}</p>
+        <p *ngIf="this.pontoIniciado"> Dia iniciado em: <br>{{tempoInicial | date:'dd/MM/yyyy HH:mm:ss'}}</p>
     </div>
     <div class="top-second-info mat-elevation-z2">
         <p *ngIf="!this.almocoIniciado && !this.almocoJaFeito">Horário de Almoço não iniciado!</p>
         <p *ngIf="this.almocoJaFeito">Horário de Almoço já realizado!</p>
-        <p *ngIf="this.almocoIniciado"> Almoço iniciado em: <br> {{tempoIniciaAlmoco}}</p>
+        <p *ngIf="this.almocoIniciado"> Almoço iniciado em: <br> {{tempoIniciaAlmoco | date:'dd/MM/yyyy HH:mm:ss'}}</p>
     </div>
 
 </div>
