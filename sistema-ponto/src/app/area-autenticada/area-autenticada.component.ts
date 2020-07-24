@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import swal from 'sweetalert';
+import { Ponto, PontoService } from './services/ponto.service';
 
 @Component({
   selector: 'area-autenticada',
@@ -8,7 +9,7 @@ import swal from 'sweetalert';
   styleUrls: ['./area-autenticada.component.css'],
 })
 export class AreaAutenticadaComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private pontoService: PontoService) {}
   admLogado: boolean = false;
   colaboradorLogado: boolean = false;
 
@@ -22,6 +23,18 @@ export class AreaAutenticadaComponent implements OnInit {
     if (localStorage['token'] == 'colaboradorlogado') {
       this.colaboradorLogado = true;
     }
+
+    if(localStorage['historicoSalvo'] == "") {
+
+      const ponto = new Ponto();
+      (ponto.nome = "Allan"),
+      (ponto.pontoInicio = new Date(2020,7,22, 8,0,0)),
+      (ponto.pontoFim =new Date(2020,7,22, 19,0,0)),
+      (ponto.almocoInicio = new Date(2020,7,22, 12,0,0)),
+      (ponto.almocoFim = new Date(2020,7,22, 13,0,0)),
+      this.pontoService.incluir(ponto)
+    }
+
   }
 
   logout() {
@@ -55,13 +68,6 @@ export class AreaAutenticadaComponent implements OnInit {
           return;
         }
       });
-
-      // localStorage.clear();
-      // this.router.navigate(['']);
-      // swal({
-      //   title: 'Você saiu do sistema!',
-      //   icon: 'success',
-      // });
     }
   }
 }

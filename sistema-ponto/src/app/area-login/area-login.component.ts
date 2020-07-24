@@ -17,6 +17,7 @@ export class AreaLoginComponent {
 
   constructor(private router: Router) {}
   ngOnInit(){
+    localStorage['historicoSalvo'] = "";
     if (localStorage['token'] == "admlogado" || localStorage['token'] == "colaboradorlogado"){
       this.router.navigate(['area-autenticada']);
     }
