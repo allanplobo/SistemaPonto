@@ -1,4 +1,4 @@
-# SistemaPonto ( Desenvolvido em Angular )
+# SistemaPonto ( Angular 10 )
 
 
 Usuários padrões
