@@ -12,7 +12,7 @@ import { tap, switchMap, map, startWith } from 'rxjs/operators';
 })
 export class RegistrosComponent implements OnInit {
   registros: Observable<Ponto[]>;
-  colunas: string[] = ['data', 'entrada', 'almoco', 'saida', 'saldo'];
+  colunas: string[] = ['nome', 'data', 'entrada', 'almoco', 'saida', 'saldo'];
   filtro: FormControl;
 
   constructor(
@@ -31,20 +31,41 @@ export class RegistrosComponent implements OnInit {
       startWith(''),
       switchMap((value) => {
         return this.pontoService.historicoAtualizou.pipe(
-          tap(console.log),
+          tap(),
           map((x) => x.filter((y) => y.nome.startsWith(value)))
         );
       })
     );
   }
 
-  saldo(ponto: Ponto) {
-    console.log(ponto);
+  pad(n, z?) {
+    z = z || 2;
+    return ('00' + n).slice(-z);
+  }
 
-    return (
+  msToTime(s) {
+
+    var ms = s % 1000;
+    s = (s - ms) / 1000;
+    var secs = s % 60;
+    s = (s - secs) / 60;
+    var mins = s % 60;
+    var hrs = (s - mins) / 60;
+
+    return this.pad(hrs) + ':' + this.pad(mins) + ':' + this.pad(secs);
+  }
+
+  saldo(ponto: Ponto) {
+    return this.msToTime(
       ponto.pontoFim.getTime() -
       ponto.pontoInicio.getTime() -
       (ponto.almocoFim.getTime() - ponto.almocoInicio.getTime())
+    );
+  }
+
+  almocoMedia(ponto: Ponto) {
+    return this.msToTime(
+      ponto.almocoFim.getTime() - ponto.almocoInicio.getTime()
     );
   }
 }

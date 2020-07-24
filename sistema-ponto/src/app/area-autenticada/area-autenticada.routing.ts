@@ -12,6 +12,11 @@ const routes: Routes = [
     component: AreaAutenticadaComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'ponto',
+        pathMatch: 'full',
+      },
+      {
         path: 'ponto',
         component: PontoComponent,
       },

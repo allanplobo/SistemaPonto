@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as moment from 'moment';
 import swal from 'sweetalert';
-import { PontoService, Ponto } from '../services/ponto.service';
-import { Observable } from 'rxjs';
+import { Ponto, PontoService } from '../services/ponto.service';
 
 @Component({
   selector: 'app-ponto',
@@ -24,15 +22,30 @@ export class PontoComponent implements OnInit {
 
   constructor(private readonly pontoService: PontoService) {}
 
+  activedInfo(x: string) {
+    let y = document.getElementById(x);
+    y.style.backgroundColor = '#32a515';
+    y.style.color = 'white';
+  }
+
+  disabledInfo(x: string) {
+    let y = document.getElementById(x);
+    y.style.backgroundColor = '#f7f7f7';
+    y.style.color = "#000000";
+  }
+
   ngOnInit(): void {
     this.nomeUsuario = localStorage['nomeUsuario'];
 
     if (localStorage['pontoIniciado'] == 'true') {
+      this.activedInfo('firstInfo');
       this.tempoInicial = localStorage['tempoInicial'];
       this.pontoIniciado = true;
     }
 
     if (localStorage['almocoIniciado'] == 'true') {
+      this.activedInfo('firstInfo');
+      this.activedInfo('secondInfo');
       this.tempoIniciaAlmoco = localStorage['tempoIniciaAlmoco'];
       this.almocoIniciado = true;
     }
@@ -46,7 +59,8 @@ export class PontoComponent implements OnInit {
   }
 
   // DIA
-  iniciarDia() {
+  iniciarDia(x: string) {
+    this.activedInfo(x);
     this.pontoIniciado = true;
     this.tempoInicial = new Date();
 
@@ -61,7 +75,7 @@ export class PontoComponent implements OnInit {
   }
 
   // ALMOÇO
-  iniciarAlmoco() {
+  iniciarAlmoco(x: string) {
     if (this.pontoIniciado == false) {
       swal({
         title: 'Você ainda não iniciou o dia!',
@@ -69,6 +83,7 @@ export class PontoComponent implements OnInit {
         icon: 'error',
       });
     } else {
+      this.activedInfo(x);
       this.almocoIniciado = true;
 
       this.tempoIniciaAlmoco = new Date();
@@ -84,7 +99,8 @@ export class PontoComponent implements OnInit {
     }
   }
 
-  encerrarAlmoco() {
+  encerrarAlmoco(x: string) {
+    this.disabledInfo(x);
     this.almocoIniciado = false;
     this.almocoJaFeito = true;
     this.tempoFinalAlmoco = new Date();
@@ -95,13 +111,12 @@ export class PontoComponent implements OnInit {
       icon: 'success',
     });
 
-
     localStorage['almocoIniciado'] = 'false';
     localStorage['almocoJaFeito'] = 'true';
     localStorage['tempoFinalAlmoco'] = this.tempoFinalAlmoco;
   }
 
-  encerrarDia() {
+  encerrarDia(x: string) {
     if (this.almocoIniciado == true) {
       swal({
         title: 'Almoço em andamento!',
@@ -109,12 +124,13 @@ export class PontoComponent implements OnInit {
         icon: 'error',
       });
     } else {
+      this.disabledInfo(x);
       this.pontoIniciado = false;
       this.almocoJaFeito = false;
 
       this.tempoFinal = new Date();
 
-      if (localStorage['tempoIniciaAlmoco'] == "null") {
+      if (localStorage['tempoIniciaAlmoco'] == 'null') {
         this.tempoIniciaAlmoco = this.tempoFinal;
         this.tempoFinalAlmoco = this.tempoFinal;
       }
@@ -125,7 +141,6 @@ export class PontoComponent implements OnInit {
         (ponto.pontoFim = this.tempoFinal),
         (ponto.almocoInicio = this.tempoIniciaAlmoco),
         (ponto.almocoFim = this.tempoFinalAlmoco),
-        console.log(ponto);
 
       this.pontoService.incluir(ponto);
 

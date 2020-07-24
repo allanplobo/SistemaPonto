@@ -28,34 +28,20 @@ export class PontoService {
   constructor() {
     this.historicos = [];
     this.historicoAtualizou = new BehaviorSubject<Ponto[]>([
-      // {
-      //   nome: 'Allan',
-      //   data: '23/07/2020',
-      //   entrada: '08:06:00',
-      //   almoco: '01:10:00',
-      //   saida: '18:00:00',
-      // },
-      // {
-      //   nome: 'Geovany',
-      //   data: '22/07/2020',
-      //   entrada: '08:01:00',
-      //   almoco: '01:01:00',
-      //   saida: '18:15:00',
-      // },
-      // {
-      //   nome: 'José',
-      //   data: '21/07/2020',
-      //   entrada: '08:20:00',
-      //   almoco: '01:00:00',
-      //   saida: '18:10:00',
-      // },
-      // {
-      //   nome: 'Lorraine',
-      //   data: '20/07/2020',
-      //   entrada: '08:10:00',
-      //   almoco: '00:55:00',
-      //   saida: '17:59:00',
-      // },
+      {
+        nome: 'Allan',
+        pontoInicio: new Date(2020,7,22, 8,0,0),
+        pontoFim: new Date(2020,7,22, 19,0,0),
+        almocoInicio: new Date(2020,7,22, 12,0,0),
+        almocoFim: new Date(2020,7,22, 13,0,0),
+      },
+      {
+        nome: 'Administrador',
+        pontoInicio: new Date(2020,7,22, 8,1,0),
+        pontoFim: new Date(2020,7,22, 18,0,0),
+        almocoInicio: new Date(2020,7,22, 12,0,0),
+        almocoFim: new Date(2020,7,22, 13,0,0),
+      },
     ]);
   }
 
