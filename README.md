@@ -1,17 +1,14 @@
 # SistemaPonto ( Angular 10 )
 
+Users:
 
-Usuários padrões
+email: allan @ allan | password: 2020
 
-email: allan@allan | senha: 2020
+email: adm @ adm | password: adm
 
+### After clicking exit the system, the storage location is completely deleted!
 
-email: adm@adm | senha: adm
-
-### Após clicar em sair do sistema, o localstorage é apagado completamente!
-
-O sistema foi desenvolvido para aprender mais praticar ainda mais meus conhecimentos em Angular. Contei, em alguns pontos, com a ajuda de meu supervisor, para aplicar as melhores práticas possíveis. https://github.com/UillianLopes
-
+The system was developed to practice my knowledge in Angular. As I am still at the beginning of my studies at RxJS, my friend (https://github.com/UillianLopes) helped me on this point.
 
 ## This project uses
 - HTML e CSS;
