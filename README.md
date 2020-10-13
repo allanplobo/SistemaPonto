@@ -1,10 +1,10 @@
-# SistemaPonto ( Angular 10 )
+# SistemaPonto
 
 Users:
 
-email: allan @ allan | password: 2020
+email: allan@allan | password: 2020
 
-email: adm @ adm | password: adm
+email: adm@adm | password: adm
 
 ### After clicking exit the system, the storage location is completely deleted!
 
